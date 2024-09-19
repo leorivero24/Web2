@@ -140,6 +140,33 @@ header {
     transform: translate(-50%, -50%);
 }
 
+/* Estilos para el spinner */
+.spinner {
+    width: 200px;
+    height: 200px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #3498db;
+    animation: spin 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Asegurarse que la galería tenga posición relativa para posicionar el spinner */
+#gallery {
+    position: relative;
+    min-height: 300px; /* Para que el spinner quede en el medio, define una altura mínima */
+}
+
 @keyframes spin {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
