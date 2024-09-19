@@ -1,0 +1,152 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+
+.filters {
+    margin-top: 1rem;
+    background-image: url('https://images.unsplash.com/photo-1499762524203-b47f7b1b26a5?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.filters::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.filters select,
+.filters input {
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 0.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #555;
+}
+
+.view-more {
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-more.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination {
+    text-align: center;
+    margin: 1rem;
+}
+
+.pagination button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.busy {
+    cursor: wait;
+    position: relative;
+}
+
+.busy:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+

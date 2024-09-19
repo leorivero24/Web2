@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo Metropolitano de Arte</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Museo Metropolitano de Arte</h1>
+        <div class="filters">
+            <select id="department-filter">
+                <option value="">Selecciona Departamento</option>
+            </select>
+            <input type="text" id="keyword-filter" placeholder="Palabra clave">
+            <input type="text" id="location-filter" placeholder="Localización">
+            <button id="search-button">Buscar</button>
+        </div>
+    </header>
+    <main>
+        <div id="gallery" class="gallery"></div>
+        <div id="pagination" class="pagination"></div>
+    </main>
+</body>
+
+</html>
