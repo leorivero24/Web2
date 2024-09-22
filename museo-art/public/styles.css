@@ -15,6 +15,7 @@ header {
 
 
 .filters {
+    border:2px solid #6d1401;
     margin-top: 1rem;
     background-image: url('https://images.unsplash.com/photo-1499762524203-b47f7b1b26a5?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
@@ -53,6 +54,7 @@ header {
 }
 
 .card {
+    border:2px solid #6d1401;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
