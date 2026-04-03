@@ -98,21 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    // function showLoadingSpinner() {
-    //     const spinner = document.createElement('div');
-    //     spinner.className = 'spinner';
-    //     gallery.innerHTML = '';
-    //     gallery.appendChild(spinner);
-    //     pagination.style.display = 'none'; // Ocultar botones de paginación mientras se carga
-    // }
 
-    // function hideLoadingSpinner() {
-    //     const spinner = document.querySelector('.spinner');
-    //     if (spinner) {
-    //         gallery.removeChild(spinner);
-    //     }
-    //     pagination.style.display = ''; // Mostrar botones de paginación después de cargar
-    // }
 
     let startTime;
 
@@ -191,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const department = departmentFilter.value;
         const keyword = keywordFilter.value;
         const location = locationFilter.value;
+
+        if (!department) {
+            gallery.innerHTML = '<p style="color:red;">⚠️ Debes seleccionar un departamento para buscar.</p>';
+            return;
+        }
 
         let query = `${apiBase}search?`;
         if (department) {
