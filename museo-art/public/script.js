@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function hideLoadingSpinner() {
-        const minTime = 100; // 👈 tiempo mínimo visible
+        const minTime = 300; // 👈 tiempo mínimo visible
 
         const elapsed = Date.now() - startTime;
         if (elapsed < minTime) {
