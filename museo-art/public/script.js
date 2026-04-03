@@ -98,20 +98,45 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
+    // function showLoadingSpinner() {
+    //     const spinner = document.createElement('div');
+    //     spinner.className = 'spinner';
+    //     gallery.innerHTML = '';
+    //     gallery.appendChild(spinner);
+    //     pagination.style.display = 'none'; // Ocultar botones de paginación mientras se carga
+    // }
+
+    // function hideLoadingSpinner() {
+    //     const spinner = document.querySelector('.spinner');
+    //     if (spinner) {
+    //         gallery.removeChild(spinner);
+    //     }
+    //     pagination.style.display = ''; // Mostrar botones de paginación después de cargar
+    // }
+
+    let startTime;
+
     function showLoadingSpinner() {
-        const spinner = document.createElement('div');
-        spinner.className = 'spinner';
-        gallery.innerHTML = '';
-        gallery.appendChild(spinner);
-        pagination.style.display = 'none'; // Ocultar botones de paginación mientras se carga
+        startTime = Date.now();
+
+        gallery.innerHTML = '<div class="spinner"></div>';
+        pagination.style.display = 'none';
     }
 
-    function hideLoadingSpinner() {
+    async function hideLoadingSpinner() {
+        const minTime = 400; // 👈 tiempo mínimo visible
+
+        const elapsed = Date.now() - startTime;
+        if (elapsed < minTime) {
+            await new Promise(r => setTimeout(r, minTime - elapsed));
+        }
+
         const spinner = document.querySelector('.spinner');
         if (spinner) {
-            gallery.removeChild(spinner);
+            spinner.remove(); // 👈 más seguro
         }
-        pagination.style.display = ''; // Mostrar botones de paginación después de cargar
+
+        pagination.style.display = '';
     }
 
     async function displayImages(images) {
@@ -184,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             searchButton.textContent = 'Buscando...';
+            showLoadingSpinner();
             searchButton.classList.add('busy');
             searchButton.disabled = true;
 
