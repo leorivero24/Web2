@@ -56,6 +56,7 @@ header {
     border: 1px solid #ccc;
     outline: none;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
 /* efecto focus */
@@ -222,6 +223,7 @@ header {
     .filters button {
         width: 100%;
         margin-right: 0;
+      
     }
 
     .filters h1 {
